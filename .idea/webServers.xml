@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="41fe1ea5-bb1e-44a2-bc11-95e6ac95939b" name="dotcom" url="http://dotcom.greenriverdev.com/">
+        <fileTransfer rootFolder="/home/dotcomgr/public_html" accessType="SFTP" host="dotcom.greenriverdev.com" port="18765" sshConfigId="6ec23a2b-f7fa-4713-9c97-17fbd074c34f" sshConfig="dotcomgr@dotcom.greenriverdev.com:18765 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
