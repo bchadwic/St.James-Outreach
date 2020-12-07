@@ -17,7 +17,7 @@ include('includes/head.html');
 <body>
 
 <!--NAVBAR-->
-<nav class="navbar navbar-dark bg-dark navbar-expand-md sticky-top">
+<nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
     <div class="container">
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#myTogglerNav"
@@ -38,75 +38,111 @@ include('includes/head.html');
     </div><!-- container -->
 </nav><!-- nav -->
 
-    <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 mb-5 mt-5 rounded">
-                <h2 class="w3-wide w3-center">COMMUNITY RESOURCES</h2>
-                <span class="w3-opacity w3-center w3-large"><i>Additional help can be found below...</i></span>
-        <hr class="style-13">
+<div class="pageStyle container mb-5 bg-white rounded">
+    <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 mb-5 rounded pageStyle">
+        <h2 class="mb-3">Community Resources</h2>
+        <p class="w3-opacity w3-center">
+            <i>You can find additional help by following the resources below</i>
+        </p>
+
         <!--LINKS AND DESCRIPTION SECTION-->
-        <!--<div class="w3-container w3-theme" id="myHeader">-->
-        <div class="w3-theme w3-container w3-center d-flex justify-content-center container">
-            <div class="d-none d-lg-block">
-            <div class="row">
+        <div class="container">
+            <hr>
+            <!-- HELP -->
+            <!-- 211 -->
+            <div class="row text-left">
+                <div class="card mb-5 col-md-8 mx-auto">
+                    <h3 class="card-header text-center">211.ORG</h3>
 
-                <div class="col-md-6">
-
-                    <div class="card form-group">
-                        <div class="card-title w3-black lead">2-1-1</div>
-                        <div class="row">
-                            <div class="col-9">
-                            <aside>2-1-1 is a free confidential community service and your one-stop connection to the local services you need, from utility assistance, food, housing, health, child care, after school programs, elder care, crisis intervention and much more.</aside>
-                            </div>
-                            <div class="col">
-                            <a href="https://www.211.org" target="_blank"><img class="ml-0"
-                                                                               src="images/211-logo.svg" alt="211"
-                                                                               <!--style="width:100px; height:120px;"--></a>
-                            </div>
-                        <!--<div class="row">
-                            <div class="col">
-                                <aside class="pr-4">
-                                    2-1-1 is a free confidential community service and your one-stop connection to the local services you need, from utility assistance, food, housing, health, child care, after school programs, elder care, crisis intervention and much more.</aside>
-                            </div>
-                            <div class="col">
-                            <a href="https://www.211.org" target="_blank"><img class="card-img-top"
-                                                                               src="images/211-logo.svg" alt="211"
-                                                                               style="width:220px; height:120px;"></a>
-                            </div>-->
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="images/211-logo.png" class="card-img" alt="211 Logo">
                         </div>
-<!--                        <div class="card-footer"><a href="https://www.211.org" target="_blank">Go To 2-1-1</a></div>
--->                    </div>
-                    <div class="card form-group cardHeight">
-                        <a href="http://kentmethodist.com/assistance" target="_blank"><img class="mt-4 flex-margin"
-                                                                                           src="images/KentUMC-logo.png"
-                                                                                           alt="Kent Methodist"
-                                                                                           style="width:360px; height:140px;"></a>
-
-
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">2-1-1 is a free confidential community service and your one-stop
+                                    connection to the local services you need, from utility assistance, food, housing,
+                                    health, child care, after school programs, elder care, crisis intervention and much
+                                    more.</p>
+                                <a href="https://www.211.org" target="_blank"
+                                   class="btn btn-primary stretched-link pull-right mb-2">Visit</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+            </div><!-- 211 -->
 
-                    <div class="card form-group cardHeight">
-                        <a href="https://stjameskent.org/" target="_blank"><img class="mt-4 flex-margin"
-                                                                                src="images/stjamesresourcelogo.png"
-                                                                                alt="Kent Methodist"
-                                                                                style="width:280px; height:140px;"></a>
+            <!-- Kent United Methodist Church -->
+            <div class="row text-left">
+                <div class="card mb-5 col-md-8 mx-auto">
+                    <h3 class="card-header text-center">Kent United Methodist Church</h3>
 
-                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="images/KentUMC-logo.png" class="card-img" alt="Kent Methodist Logo">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">Kent United Methodist Church joyfully embraces God's acceptance and
+                                    love of all people. We affirm that all individuals are persons of sacred worth.</p>
+                                <a href="http://kentmethodist.com/assistance" target="_blank"
+                                   class="btn btn-primary stretched-link pull-right mb-2">Visit</a>
 
-                    <div class="card form-group cardHeight">
-                        <a href="https://www.dshs.wa.gov/" target="_blank"><img class="mt-4 flex-margin"
-                                                                                src="images/dshs.png"
-                                                                                alt="Kent Methodist"
-                                                                                style="width:280px; height:160px;"></a>
-
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div><!-- Kent United Methodist Church -->
 
-            </div>
-            </div>
+            <!-- DSHS -->
+            <div class="row text-left">
+                <div class="card mb-5 col-md-8 mx-auto">
+                    <h3 class="card-header text-center">Washington State Department of Social and Health Services</h3>
+
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="images/dshs.png" class="card-img" alt="DSHS Logo">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">As a Department we are tied together by a single mission: to
+                                    transform lives. Each administration within DSHS has a refined focus on this
+                                    mission.</p>
+                                <a href="https://www.dshs.wa.gov/" target="_blank"
+                                   class="btn btn-primary stretched-link pull-right mb-2">Visit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- DSHS -->
+
+            <!-- St. James -->
+            <div class="row text-left">
+                <div class="card mb-5 col-md-8 mx-auto">
+                    <h3 class="card-header text-center">St. James Episcopal Church</h3>
+
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="images/stjameslogo.png" class="card-img" alt="St. James Logo">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">“Every person is welcome at God’s Table”—this is what we say every
+                                    Sunday morning, and we truly mean it. It guides our lives and our ministries here at
+                                    St. James, Kent. Whoever you are—whatever your story, your circumstances, your
+                                    hopes, and your gifts—you are truly and completely welcome with us.</p>
+                                <a href="https://stjameskent.org/" target="_blank"
+                                   class="btn btn-primary stretched-link pull-right mb-2">Visit</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- St.James -->
         </div>
-
     </div>
+
+
     <!-- The Footer Section -->
     <div class="w3-container w3-content w3-center w3-padding-64 shadow-lg mb-5 bg-white w3-black rounded" id="contact">
         <!-- Footer -->
@@ -180,5 +216,6 @@ include('includes/head.html');
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"
 ></script>
+
 </body>
 </html>

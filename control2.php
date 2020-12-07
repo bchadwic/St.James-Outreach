@@ -62,6 +62,7 @@ include("includes/creds.php");
         <table class="table display table-hover" id="user-table">
             <thead class="thead-light">
             <tr>
+                <th scope="col"></th>
                 <th scope="col">ID</th>
                 <th scope="col">Date</th>
                 <th scope="col">Name</th>
@@ -79,7 +80,7 @@ include("includes/creds.php");
 
             <?php
             // Select column data from the database table
-            $sql = "SELECT `id`, `date`, `FirstName`, `LastName`, `Phone`, `Email`, 
+            $sql = "SELECT `completed`, `id`, `date`, `FirstName`, `LastName`, `Phone`, `Email`, 
                         `Address`, `AddressTwo`, `City`, `Zip`, `HelpList`, `Comments`, `Note` 
                         from outreach_form ORDER BY Date DESC";
             $result = $conn->query($sql);
@@ -87,10 +88,11 @@ include("includes/creds.php");
             // Database content must contain at least one row
             if ($result->num_rows > 0) {
                 // Print data while this condition is true
-
                 while ($row = $result->fetch_assoc()) {
                     $recordId = $row["id"];
-                    echo "<tr><td>" . $row["id"]
+                    echo "<tr><td>" .
+                        "<input class='completed' type='checkbox' id='complete$recordId'>"
+                        . "</td><td>" . $row["id"]
                         . "</td><td>" . date("M d, Y g:i a",
                             strtotime($row['date']."- 3 hours"))
                         . "</td><td>" . $row["FirstName"] ." ". $row["LastName"]
@@ -99,8 +101,9 @@ include("includes/creds.php");
                         . "</td><td>" . $row["Phone"]
                         . "</td><td>" . $row["HelpList"]
                         . "</td><td>" . $row["Comments"]
-                        . "</td><td class='notes' id='note$recordId' contenteditable='true'>". $row['Note'] ."</td>
-                        .  <td><a href='includes/delete.php?recordId=$recordId' class='btn btn-sm text-white'>Delete</a> </td>
+                        . "</td><td class='notes' id='note$recordId' contenteditable='true'>". $row['Note']
+                        . "</td><td><a href='includes/delete.php?recordId=$recordId' class='btn btn-sm text-white'>Delete</a> 
+                           </td>
                          </tr>";
                 }
             } else {
@@ -141,6 +144,7 @@ include("includes/creds.php");
             </tbody>
         </table>
 
+
         <!--<script>
             window.onload(function (){
                 alert("preparing ajax");
@@ -175,6 +179,7 @@ include("includes/creds.php");
         </div>
 
     </div>
+
 </div>
 
 
@@ -199,6 +204,7 @@ include("includes/creds.php");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
 <script>
 
     $.post('includes/formDisplay.php',function (display){
@@ -245,6 +251,30 @@ include("includes/creds.php");
             });
         });
 
+        $('#tableData .completed').each(function () {
+            let id = (this.id).substring(8);
+
+            $(this).click(function () {
+                if ($(this).is(':checked')) {
+                    $.post('includes/setCompleted.php', {id: id, checked: 1});
+                } else {
+                    $.post('includes/setCompleted.php', {id: id, checked: 0});
+                }
+            });
+        });
+
+        $('#tableData .completed').each(function (){
+            let id = (this.id).substring(8);
+            let checkbox = this;
+            $.post('includes/getCompleted.php', {id : id}, function (checked){
+                if(checked == "1"){
+                    $(checkbox).prop('checked', true);
+                } else {
+                    $(checkbox).prop('checked', false);
+
+                }
+            });
+        });
     });
 </script>
 

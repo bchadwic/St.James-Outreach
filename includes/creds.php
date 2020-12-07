@@ -1,8 +1,8 @@
 <?php
 // Connect to dataase
-$database = "bchadwi1_dotcom";
-$username = "bchadwi1_dotcomuser";
-$password = "dotcompassword";
+$database = "dotcomgr_grc";
+$username = "dotcomgr_user";
+$password = "DotcomUserPass1";
 $hostname = "localhost";
 
 $conn = @mysqli_connect($hostname, $username, $password, $database)

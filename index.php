@@ -255,7 +255,7 @@ This website is the homepage for St. James Outreach
     <div class="modal-dialog modal-dialog-centered" id="loginPanel" role="document">
         <div class="modal-content">
             <div class="modal-header w3-black">
-                <h2 class="<!--w3-black modal-title -->w3-modal-content">Admin Login</h2>
+                <h2 class="w3-black modal-title w3-modal-content">Admin Login</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -266,16 +266,19 @@ This website is the homepage for St. James Outreach
                         <div class="col-2 mr-3">
                             <label class="mt-2 mb-3 control-label lead" >Username</label><br>
                             <label class="control-label lead">Password</label>
-                            <?php
-                            if ($err) {
-                                echo '<span class="err">Incorrect login</span><br>';
-                            }
-                            ?>
+
                         </div>
                         <div class="ml-5 col-xs-2">
                             <input class="form-control mb-2" type="text" id="username" name="username"<?php echo "value='$username'" ?>>
                             <input class="form-control" type="password" id="password" name="password">
                         </div>
+                        <?php
+                        if ($err){
+                            echo '<div class="alert alert-danger ml-3" role="alert">
+                                        <strong>Wrong username or password</strong>
+                                        </div>';
+                        }
+                        ?>
                     </div>
             </div>
             <div class="modal-footer">
@@ -313,7 +316,7 @@ This website is the homepage for St. James Outreach
                             >24447 94th Ave S, Kent, WA, 98030 </a></p>
                         <p><i class="fa fa-phone contactFont"></i> Phone:<a href="tel:253-852-4100">253-852-4100</a></p>
                         <p><i class="fa fa-envelope contactFont"> </i> Email:mail@mail.com</p>
-                        <a class="w3-text-white" href="#loginModal" data-toggle="modal" data-target="#loginModal" >Admin Page</a>
+                        <a class="w3-text-white" href="control.php" data-toggle="modal" data-target="#loginModal" >Admin Page</a>
                     </div>
                     <div class="col-md-4 col-lg-3 footer-location">
                         <h3 class="mb-3">Our Location</h3>

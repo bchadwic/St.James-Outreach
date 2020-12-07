@@ -5,8 +5,11 @@ error_reporting(E_ALL);
 require("creds.php");
 
 $query = "SELECT form FROM `admin_functions`";
-
-if($result = mysqli_query($conn, $query)){
-    $row = $result->fetch_assoc();
+$success = mysqli_query($conn, $query);
+if(!$success) {
+    echo "$query";
+    echo "<br><h4 class='text-center'>Something went wrong...</h4>";
+} else {
+    $row = $success->fetch_assoc();
     echo $row['form'];
 }
