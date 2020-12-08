@@ -135,7 +135,7 @@ This website is the homepage for St. James Outreach
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header w3-black">
-                    <h2 class="<!--w3-black modal-title -->w3-modal-content">St. James Outreach</h2>
+                    <h2 class="w3-black modal-title w3-modal-content">St. James Outreach</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

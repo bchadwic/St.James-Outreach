@@ -1,3 +1,3 @@
 <?php
-$adminUser = 'peter';
-$adminPassword = 'outreach';
+$adminUser = 'admin';
+$adminPassword = 'password';

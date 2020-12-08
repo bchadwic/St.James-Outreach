@@ -8,6 +8,6 @@ if (isset($_GET['recordId'])) {
     $delete = $common->deleteRecordById($conn, $recordId);
     if ($delete) {
 /*        echo '<script>alert("Record deleted successfully !")</script>';*/
-        echo '<script>window.location.href="http://dotcom.greenriverdev.com/control2.php";</script>';
+        echo '<script>window.location.href="http://dotcom.greenriverdev.com/control.php";</script>';
     }
 }

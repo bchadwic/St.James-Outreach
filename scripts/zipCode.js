@@ -30,7 +30,7 @@ function showNonForm() {
 //validates when the user can fill out the form
 function validateTime() {
     let todayDate = new Date();
-    let myDay = /*todayDate.getDay()*/ 3;
+    let myDay = /*todayDate.getDay()*/ 1;
     let myHour = /*todayDate.getHours();*/ 13;
     // Tests to see if it is Monday
     if (myDay == 1) {

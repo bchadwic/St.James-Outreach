@@ -23,9 +23,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     //If they are correct
     //Actual username and password are stored in a separate file
     //Should be moved to home directory ABOVE public_html
-    //require ('includes/cred.php');
+    require ('includes/login-creds.php');
 
-    if ($username == "admin" && $password == "admin") {
+    if ($username == $adminUser && $password == $adminPassword) {
 
         $_SESSION['loggedin'] = true;
 

@@ -1,5 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+// Include header file
+
 session_start();
+
+
 
 //checks to see if logged in if not it will take you to index.php
 if (!isset($_SESSION['loggedin'])) {
@@ -8,11 +14,24 @@ if (!isset($_SESSION['loggedin'])) {
 
     header("location: login.php");
 }
-// Include header file
+
 include("includes/head.html");
 include("includes/creds.php");
 
 ?>
+
+
+
+<!--
+Ben Chadwick
+Jessica Sestak
+Husrav Homidov
+Tiffany Welo
+
+Team Dotcom
+11/1/20
+This website is the homepage for St. James Outreach
+-->
 
 <!-- Beginning of the main body -->
 <body>
@@ -48,7 +67,7 @@ include("includes/creds.php");
 <div class="w3-content pageStyle">
     <!-- The Application Form Section -->
     <!-- Paragraph representing what the Outreach program does -->
-    <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 bg-white rounded">
 
         <!-- Welcome Message -->
         <div class="w3-container w3-content w3-center w3-padding-64" id="welcomeMessage">
@@ -58,12 +77,13 @@ include("includes/creds.php");
 </div>
 
 <!--TABLE-->
-<div class="w3-content pageStyle">
+<div class="w3-content pageStyle mt-5">
     <div class="band shadow-lg p-3 mb-5 bg-white rounded table-responsive">
 
         <table class="table display table-hover" id="user-table">
             <thead class="thead-light">
             <tr>
+                <th scope="col"></th>
                 <th scope="col">ID</th>
                 <th scope="col">Date</th>
                 <th scope="col">Name</th>
@@ -71,15 +91,18 @@ include("includes/creds.php");
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
                 <th scope="col">Help List</th>
-                <th scope="col">Comments and Attachments</th>
+                <th scope="col">Comments</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="tableData">
+
 
             <?php
             // Select column data from the database table
-            $sql = "SELECT `ID`, `Date`, `First Name`, `Last Name`, `Phone`, `Email`, 
-                        `Address`, `Adress 2`, `City`, `ZIP`, `Help List`, `Comments and Attachments` 
+            $sql = "SELECT `completed`, `id`, `date`, `FirstName`, `LastName`, `Phone`, `Email`, 
+                        `Address`, `AddressTwo`, `City`, `Zip`, `HelpList`, `Comments`, `Note` 
                         from outreach_form ORDER BY Date DESC";
             $result = $conn->query($sql);
 
@@ -87,58 +110,44 @@ include("includes/creds.php");
             if ($result->num_rows > 0) {
                 // Print data while this condition is true
                 while ($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . $row["ID"]
+                    $recordId = $row["id"];
+                    echo "<tr class='tableRow' id='row$recordId'><td>" .
+                        "<input class='completed' type='checkbox' id='complete$recordId'>"
+                        . "</td><td>" . $row["id"]
                         . "</td><td>" . date("M d, Y g:i a",
-                            strtotime($row['Date']."- 3 hours"))
-                        . "</td><td>" . $row["First Name"] ." ". $row["Last Name"]
-                        . "</td><td>" . $row["ZIP"]
+                            strtotime($row['date']."- 3 hours"))
+                        . "</td><td>" . $row["FirstName"] ." ". $row["LastName"]
+                        . "</td><td>" . $row["Zip"]
                         . "</td><td>" . $row["Email"]
                         . "</td><td>" . $row["Phone"]
-                        . "</td><td>" . $row["Help List"]
-                        . "</td><td>" . $row["Comments and Attachments"]
-                        . "</td> </tr>";
+                        . "</td><td>" . $row["HelpList"]
+                        . "</td><td>" . $row["Comments"]
+                        . "</td><td class='notes' id='note$recordId' contenteditable='true'>". $row['Note']
+                        . "</td><td><a href='includes/delete.php?recordId=$recordId' class='btn btn-sm text-white mt-2'>Delete</a> 
+                           </td>
+                         </tr>";
                 }
             } else {
                 echo "0 Result";
             }
-
-            /*
-            $sql = "SELECT `ID`, `Date`, `First Name`, `Last Name`, `Phone`, `Email`, 
-                        `Address`, `Adress 2`, `City`, `ZIP`, `Help List`, `Comments and Attachments` 
-                        from outreach_form";
-            $result = mysqli_query($cnxn, $sql);
-
-            foreach ($result as $row) {
-                $id = $row["ID"];
-                $date = date("M d, Y g:i a",
-                    strtotime($row['Date']."- 3 hours"));
-                $name = $row["First Name"] ." ". $row["Last Name"];
-                $phone = $row["Phone"];
-                $email = $row["Email"];
-                $address = $row["Address"] . " " . $row["Address 2"] . " " . $row["City"] . ", " . $row["ZIP"];
-                $helplist = $row["Help List"];
-                $comments = $row["Comments and Attachments"];
-
-                echo "<tr>";
-                echo "<td>$id</td>";
-                echo "<td>$date</td>";
-                echo "<td>$name</td>";
-                echo "<td>$phone</td>";
-                echo "<td>$email</td>";
-                echo "<td>$address</td>";
-                echo "<td>$helplist</td>";
-                echo "<td>$comments</td>";
-                echo "</tr">;
-            }
-            */
-
             ?>
-
             </tbody>
         </table>
-    </div>
-</div>
 
+
+
+
+<div id="displayToggle" class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label id="onLabel" class="btn btn-dark">
+        <input type="radio" name="options" id="on" value="0"> On
+    </label>
+    <label id="offLabel" class="btn btn-dark">
+        <input type="radio" name="options" id="off" value="1"> Off
+    </label>
+    <label id="scheduleLabel" class="btn btn-dark">
+        <input type="radio" name="options" id="schedule" value="2""> Schedule
+    </label>
+</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -158,17 +167,109 @@ include("includes/creds.php");
         crossorigin="anonymous"
 ></script>
 <!-- jQuery Data Table -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
-<script>$(document).ready(function() {
-        $('#user-table').DataTable( {
-            "order": [[ 0, "desc" ]]
-        } );
-    } );</script>
+<script>
 
-<script src="scripts/scripts.js"></script>
-<script src="scripts/index.js"></script>
-<script src="scripts/zipCode.js"></script>
+    $.post('includes/formDisplay.php',function (display){
+            $('#onLabel').removeClass("active");
+            $('#offLabel').removeClass("active");
+            $('#scheduleLabel').removeClass("active");
+            if(display == 0){
+                $('#on').prop("checked", true);
+                $('#onLabel').addClass("active");
+            } else if (display == 1){
+                $('#off').prop("checked", true);
+                $('#offLabel').addClass("active");
+            } else if (display == 2){
+                $('#schedule').prop("checked", true);
+                $('#scheduleLabel').addClass("active");
+
+            }
+        }
+    );
+
+
+    $('#on').click(function (){
+        $.post('includes/formSet.php', {display : 0});
+    });
+
+    $('#off').click(function (){
+        $.post('includes/formSet.php', {display : 1});
+    });
+
+    $('#schedule').click(function (){
+        $.post('includes/formSet.php', {display : 2});
+    });
+
+    $(document).ready(function() {
+
+        $('#user-table').DataTable({
+            "order": [[0, "desc"]]
+        });
+
+    });
+        $('#tableData .notes').each(function () {
+            $(this).blur(function (){
+                let id = (this.id).substring(4);
+                $.post('includes/edit.php', {id : id, text : ($(this).html())}, function (){});
+            });
+        });
+
+        $('#tableData .completed').each(function () {
+            let id = (this.id).substring(8);
+
+            $(this).click(function () {
+                if ($(this).is(':checked')) {
+                    $.post('includes/setCompleted.php', {id: id, checked: 1});
+                } else {
+                    $.post('includes/setCompleted.php', {id: id, checked: 0});
+                }
+            });
+        });
+
+        $('#tableData .completed').each(function (){
+            let id = (this.id).substring(8);
+            let checkbox = this;
+            $.post('includes/getCompleted.php', {id : id}, function (checked){
+                if(checked == "1"){
+                    $(checkbox).prop('checked', true);
+                } else {
+                    $(checkbox).prop('checked', false);
+                }
+                $(checkbox).is(':checked') ? $(checkbox).closest('tr').css({background : '#d1dce7'}) : $(checkbox).closest('tr').css({background : ''});
+
+            });
+        });
+
+        $('.completed').on('change', function(){
+            //update row color
+            $(this).is(':checked') ? $(this).closest('tr').css({background : '#d1dce7'}) : $(this).closest('tr').css({background : ''}) ;
+        });
+
+
+
+        /*$('#tableData .tableRow').each(function (){
+            /!*let id = (this.id).substring(3);
+            let row = this;
+            $.post('includes/getCompleted.php', {id : id}, function (checked){
+                if(checked == "1"){
+                    $(row).("highlighted");
+                }
+            });*!/
+            let row = this;
+            $(row).css("background-color", "#d1e7dd");
+        });*/
+
+
+</script>
+<style>
+    .highlighted {
+        background-color: #d1e7dd;
+    }
+</style>
 
 </body>
 </html>
