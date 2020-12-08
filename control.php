@@ -1,52 +1,45 @@
 <?php
+//Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-// Include header file
 
+// Start session
 session_start();
 
-
-
-//checks to see if logged in if not it will take you to index.php
+// Checks to see if logged in. If not - redirects to index.php
 if (!isset($_SESSION['loggedin'])) {
     //store the page that i am currently on in the session
     $_SESSION['page'] = $_SERVER['SCRIPT_URI'];
 
     header("location: login.php");
 }
-
+// Include header file
 include("includes/head.html");
-include("includes/creds.php");
+require("includes/creds.php");
 
 ?>
-
-
-
 <!--
-Ben Chadwick
-Jessica Sestak
-Husrav Homidov
-Tiffany Welo
+    Ben Chadwick
+    Jessica Sestak
+    Husrav Homidov
+    Tiffany Welo
 
-Team Dotcom
-11/1/20
-This website is the homepage for St. James Outreach
--->
-
+    Team Dotcom
+    11/1/20
+    This website is the homepage for St. James Outreach
+    -->
 <!-- Beginning of the main body -->
 <body>
-
-
 <!--NAVBAR-->
 <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
     <div class="container">
+        <!-- Toggler For Mobile -->
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#myTogglerNav"
                 aria-controls="myTogglerNav" aria-expanded="false"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <a href="index.php" class="navbar-brand">Kent Outreach</a>
         <div class="collapse navbar-collapse" id="myTogglerNav">
             <div class="navbar-nav">
@@ -54,37 +47,32 @@ This website is the homepage for St. James Outreach
                 <a href="index.php#contact" class="nav-item nav-link">CONTACTS</a>
                 <a href="getinvolved.php" class="nav-item nav-link">GET INVOLVED</a>
                 <a href="resources.php" class="nav-item nav-link">RESOURCES</a>
-            </div><!-- navbar -->
+            </div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-item nav-link" href="logout.php">Log Out</a>
                 </li>
             </ul>
         </div>
-    </div><!-- container -->
-</nav><!-- nav -->
+    </div>
+</nav><!-- NAVBAR END -->
 
 <div class="w3-content pageStyle">
-    <!-- The Application Form Section -->
-    <!-- Paragraph representing what the Outreach program does -->
     <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 bg-white rounded">
-
-        <!-- Welcome Message -->
+        <!-- Page Top Title -->
         <div class="w3-container w3-content w3-center w3-padding-64" id="welcomeMessage">
             <h1>Control Page</h1>
         </div>
     </div>
 </div>
 
-<!--TABLE-->
+<!--Table-->
 <div class="w3-content pageStyle mt-5">
     <div class="band shadow-lg p-3 mb-5 bg-white rounded table-responsive">
-
         <table class="table display table-hover" id="user-table">
             <thead class="thead-light">
             <tr>
                 <th scope="col"></th>
-                <th scope="col">ID</th>
                 <th scope="col">Date</th>
                 <th scope="col">Name</th>
                 <th scope="col">Zip</th>
@@ -93,17 +81,16 @@ This website is the homepage for St. James Outreach
                 <th scope="col">Help List</th>
                 <th scope="col">Comments</th>
                 <th scope="col">Notes</th>
+                <th scope="col">Attachments</th>
                 <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody id="tableData">
-
-
             <?php
             // Select column data from the database table
             $sql = "SELECT `completed`, `id`, `date`, `FirstName`, `LastName`, `Phone`, `Email`, 
-                        `Address`, `AddressTwo`, `City`, `Zip`, `HelpList`, `Comments`, `Note` 
-                        from outreach_form ORDER BY Date DESC";
+                                `Address`, `AddressTwo`, `City`, `Zip`, `HelpList`, `Comments`, `Note`, `Attachments`
+                                from outreach_form ORDER BY Date DESC";
             $result = $conn->query($sql);
 
             // Database content must contain at least one row
@@ -111,9 +98,12 @@ This website is the homepage for St. James Outreach
                 // Print data while this condition is true
                 while ($row = $result->fetch_assoc()) {
                     $recordId = $row["id"];
+                    $clickText = "";
+                    if(!($row['Attachments'] == '0')){
+                        $clickText = "<img class='img img-fluid' src='images/paperclip.png' style='max-width: 40px; height: auto;'>";
+                    }
                     echo "<tr class='tableRow' id='row$recordId'><td>" .
                         "<input class='completed' type='checkbox' id='complete$recordId'>"
-                        . "</td><td>" . $row["id"]
                         . "</td><td>" . date("M d, Y g:i a",
                             strtotime($row['date']."- 3 hours"))
                         . "</td><td>" . $row["FirstName"] ." ". $row["LastName"]
@@ -123,9 +113,10 @@ This website is the homepage for St. James Outreach
                         . "</td><td>" . $row["HelpList"]
                         . "</td><td>" . $row["Comments"]
                         . "</td><td class='notes' id='note$recordId' contenteditable='true'>". $row['Note']
+                        . "</td><td class='text-center'><a href=". $row['Attachments'] ." target='_blank'>$clickText</a>"
                         . "</td><td><a href='includes/delete.php?recordId=$recordId' class='btn btn-sm text-white mt-2'>Delete</a> 
-                           </td>
-                         </tr>";
+                                   </td>
+                                 </tr>";
                 }
             } else {
                 echo "0 Result";
@@ -133,21 +124,27 @@ This website is the homepage for St. James Outreach
             ?>
             </tbody>
         </table>
-
-
-
-
-<div id="displayToggle" class="btn-group btn-group-toggle" data-toggle="buttons">
-    <label id="onLabel" class="btn btn-dark">
-        <input type="radio" name="options" id="on" value="0"> On
-    </label>
-    <label id="offLabel" class="btn btn-dark">
-        <input type="radio" name="options" id="off" value="1"> Off
-    </label>
-    <label id="scheduleLabel" class="btn btn-dark">
-        <input type="radio" name="options" id="schedule" value="2""> Schedule
-    </label>
-</div>
+        <!-- Form Status -->
+        <div class="row text-left mt-2">
+            <div class="card mb-2 col-md-12 mx-auto">
+                <h3 class="card-header text-center">Form Status</h3>
+                <div class="card-body mx-auto row">
+                    <div id="displayToggle" class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label id="onLabel" class="btn btn-dark">
+                            <input type="radio" name="options" id="on" value="0"> On
+                        </label>
+                        <label id="offLabel" class="btn btn-dark">
+                            <input type="radio" name="options" id="off" value="1"> Off
+                        </label>
+                        <label id="scheduleLabel" class="btn btn-dark">
+                            <input type="radio" name="options" id="schedule" value="2"> Schedule
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Form Status End-->
+    </div>
+</div> <!--Table End -->
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -168,11 +165,10 @@ This website is the homepage for St. James Outreach
 ></script>
 <!-- jQuery Data Table -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
 <script>
-
+    // Form Status
     $.post('includes/formDisplay.php',function (display){
             $('#onLabel').removeClass("active");
             $('#offLabel').removeClass("active");
@@ -191,7 +187,6 @@ This website is the homepage for St. James Outreach
         }
     );
 
-
     $('#on').click(function (){
         $.post('includes/formSet.php', {display : 0});
     });
@@ -204,72 +199,54 @@ This website is the homepage for St. James Outreach
         $.post('includes/formSet.php', {display : 2});
     });
 
+    // Sort the table - newest first
     $(document).ready(function() {
 
         $('#user-table').DataTable({
             "order": [[0, "desc"]]
         });
-
     });
-        $('#tableData .notes').each(function () {
-            $(this).blur(function (){
-                let id = (this.id).substring(4);
-                $.post('includes/edit.php', {id : id, text : ($(this).html())}, function (){});
-            });
+
+    // Notes column edit
+    $('#tableData .notes').each(function () {
+        $(this).blur(function (){
+            let id = (this.id).substring(4);
+            $.post('includes/edit.php', {id : id, text : ($(this).html())}, function (){});
         });
+    });
 
-        $('#tableData .completed').each(function () {
-            let id = (this.id).substring(8);
+    // Checkbox to highlight the row
+    // Set status of the checkbox and save on the database
+    $('#tableData .completed').each(function () {
+        let id = (this.id).substring(8);
 
-            $(this).click(function () {
-                if ($(this).is(':checked')) {
-                    $.post('includes/setCompleted.php', {id: id, checked: 1});
-                } else {
-                    $.post('includes/setCompleted.php', {id: id, checked: 0});
-                }
-            });
+        $(this).click(function () {
+            if ($(this).is(':checked')) {
+                $.post('includes/setCompleted.php', {id: id, checked: 1});
+            } else {
+                $.post('includes/setCompleted.php', {id: id, checked: 0});
+            }
         });
+    });
+    // Get status of the checkbox and save on the database
+    $('#tableData .completed').each(function (){
+        let id = (this.id).substring(8);
+        let checkbox = this;
+        $.post('includes/getCompleted.php', {id : id}, function (checked){
+            if(checked == "1"){
+                $(checkbox).prop('checked', true);
+            } else {
+                $(checkbox).prop('checked', false);
+            }
+            $(checkbox).is(':checked') ? $(checkbox).closest('tr').css({background : '#d1dce7'}) : $(checkbox).closest('tr').css({background : ''});
 
-        $('#tableData .completed').each(function (){
-            let id = (this.id).substring(8);
-            let checkbox = this;
-            $.post('includes/getCompleted.php', {id : id}, function (checked){
-                if(checked == "1"){
-                    $(checkbox).prop('checked', true);
-                } else {
-                    $(checkbox).prop('checked', false);
-                }
-                $(checkbox).is(':checked') ? $(checkbox).closest('tr').css({background : '#d1dce7'}) : $(checkbox).closest('tr').css({background : ''});
-
-            });
         });
-
-        $('.completed').on('change', function(){
-            //update row color
-            $(this).is(':checked') ? $(this).closest('tr').css({background : '#d1dce7'}) : $(this).closest('tr').css({background : ''}) ;
-        });
-
-
-
-        /*$('#tableData .tableRow').each(function (){
-            /!*let id = (this.id).substring(3);
-            let row = this;
-            $.post('includes/getCompleted.php', {id : id}, function (checked){
-                if(checked == "1"){
-                    $(row).("highlighted");
-                }
-            });*!/
-            let row = this;
-            $(row).css("background-color", "#d1e7dd");
-        });*/
-
-
+    });
+    // Change the color of the row
+    $('.completed').on('change', function(){
+        //update row color
+        $(this).is(':checked') ? $(this).closest('tr').css({background : '#d1dce7'}) : $(this).closest('tr').css({background : ''}) ;
+    });
 </script>
-<style>
-    .highlighted {
-        background-color: #d1e7dd;
-    }
-</style>
-
 </body>
 </html>

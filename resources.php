@@ -1,31 +1,29 @@
 <!--
-Ben Chadwick
-Jessica Sestak
-Husrav Homidov
-Tiffany Welo
+    Ben Chadwick
+    Jessica Sestak
+    Husrav Homidov
+    Tiffany Welo
 
-Team Dotcom
-11/1/20
-This website is the resources for St. James Outreach
--->
+    Team Dotcom
+    11/1/20
+    This website is the resources for St. James Outreach
+    -->
 <?php
-
 // Include header file
 include('includes/head.html');
 
 ?>
 <body>
-
 <!--NAVBAR-->
 <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
     <div class="container">
+        <!-- Toggler For Mobile -->
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#myTogglerNav"
                 aria-controls="myTogglerNav" aria-expanded="false"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <a href="index.php" class="navbar-brand">Kent Outreach</a>
         <div class="collapse navbar-collapse" id="myTogglerNav">
             <div class="navbar-nav">
@@ -33,27 +31,25 @@ include('includes/head.html');
                 <a href="index.php#contact" class="nav-item nav-link">CONTACTS</a>
                 <a href="getinvolved.php" class="nav-item nav-link">GET INVOLVED</a>
                 <a href="resources.php" class="nav-item nav-link active">RESOURCES</a>
-            </div><!-- navbar -->
+            </div>
         </div>
-    </div><!-- container -->
-</nav><!-- nav -->
+    </div>
+</nav> <!-- Navbar End -->
 
 <div class="pageStyle container mb-5 bg-white rounded">
     <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 mb-5 rounded pageStyle">
+
+        <!-- Page Top Title -->
         <h2 class="mb-3">Community Resources</h2>
         <p class="w3-opacity w3-center">
             <i>You can find additional help by following the resources below</i>
         </p>
-
-        <!--LINKS AND DESCRIPTION SECTION-->
         <div class="container">
             <hr>
-            <!-- HELP -->
-            <!-- 211 -->
+            <!-- 211.ORG -->
             <div class="row text-left">
                 <div class="card mb-5 col-md-8 mx-auto">
                     <h3 class="card-header text-center">211.ORG</h3>
-
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="images/211-logo.png" class="card-img" alt="211 Logo">
@@ -63,20 +59,20 @@ include('includes/head.html');
                                 <p class="card-text">2-1-1 is a free confidential community service and your one-stop
                                     connection to the local services you need, from utility assistance, food, housing,
                                     health, child care, after school programs, elder care, crisis intervention and much
-                                    more.</p>
+                                    more.
+                                </p>
                                 <a href="https://www.211.org" target="_blank"
                                    class="btn btn-primary stretched-link pull-right mb-2">Visit</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- 211 -->
+            </div> <!-- 211.ORG End-->
 
             <!-- Kent United Methodist Church -->
             <div class="row text-left">
                 <div class="card mb-5 col-md-8 mx-auto">
                     <h3 class="card-header text-center">Kent United Methodist Church</h3>
-
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="images/KentUMC-logo.png" class="card-img" alt="Kent Methodist Logo">
@@ -84,21 +80,20 @@ include('includes/head.html');
                         <div class="col-md-8">
                             <div class="card-body">
                                 <p class="card-text">Kent United Methodist Church joyfully embraces God's acceptance and
-                                    love of all people. We affirm that all individuals are persons of sacred worth.</p>
+                                    love of all people. We affirm that all individuals are persons of sacred worth.
+                                </p>
                                 <a href="http://kentmethodist.com/assistance" target="_blank"
                                    class="btn btn-primary stretched-link pull-right mb-2">Visit</a>
-
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- Kent United Methodist Church -->
+            </div> <!-- Kent United Methodist Church End-->
 
             <!-- DSHS -->
             <div class="row text-left">
                 <div class="card mb-5 col-md-8 mx-auto">
                     <h3 class="card-header text-center">Washington State Department of Social and Health Services</h3>
-
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="images/dshs.png" class="card-img" alt="DSHS Logo">
@@ -107,20 +102,20 @@ include('includes/head.html');
                             <div class="card-body">
                                 <p class="card-text">As a Department we are tied together by a single mission: to
                                     transform lives. Each administration within DSHS has a refined focus on this
-                                    mission.</p>
+                                    mission.
+                                </p>
                                 <a href="https://www.dshs.wa.gov/" target="_blank"
                                    class="btn btn-primary stretched-link pull-right mb-2">Visit</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- DSHS -->
+            </div> <!-- DSHS End -->
 
             <!-- St. James -->
             <div class="row text-left">
                 <div class="card mb-5 col-md-8 mx-auto">
                     <h3 class="card-header text-center">St. James Episcopal Church</h3>
-
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="images/stjameslogo.png" class="card-img" alt="St. James Logo">
@@ -130,36 +125,32 @@ include('includes/head.html');
                                 <p class="card-text">“Every person is welcome at God’s Table”—this is what we say every
                                     Sunday morning, and we truly mean it. It guides our lives and our ministries here at
                                     St. James, Kent. Whoever you are—whatever your story, your circumstances, your
-                                    hopes, and your gifts—you are truly and completely welcome with us.</p>
+                                    hopes, and your gifts—you are truly and completely welcome with us.
+                                </p>
                                 <a href="https://stjameskent.org/" target="_blank"
                                    class="btn btn-primary stretched-link pull-right mb-2">Visit</a>
-
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- St.James -->
+            </div> <!-- St.James End -->
         </div>
     </div>
 
-
-    <!-- The Footer Section -->
+    <!-- Footer -->
     <div class="w3-container w3-content w3-center w3-padding-64 shadow-lg mb-5 bg-white w3-black rounded" id="contact">
-        <!-- Footer -->
         <footer>
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4 col-lg-4 footer-about">
                             <h3 class="mb-5">Hours</h3>
-
                             <p><i class="fa fa-calendar contactFont"> </i>
-                                Monday: 1:00pm to 4:00pm</p>
+                                Monday: 1:00pm to 4:00pm
+                            </p>
                             <p>Tuesday: 9:00am to 12:00 noon</p>
                             <p>Wednesday: 1:00pm to 4:00pm</p>
-
                         </div>
-
                         <div class="col-md-4 col-lg-4 footer-contact">
                             <h3 class="mb-5">Contacts</h3>
                             <!-- Google Map insertion -->
@@ -168,12 +159,12 @@ include('includes/head.html');
                                         href="https://goo.gl/maps/UEuiGpguDtXozPjN7"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                >24447 94th Ave S, Kent, WA, 98030 </a></p>
+                                >24447 94th Ave S, Kent, WA, 98030 </a>
+                            </p>
                             <p><i class="fa fa-phone contactFont"></i> Phone:<a href="tel:253-852-4100">253-852-4100</a>
                             </p>
                             <p><i class="fa fa-envelope contactFont"> </i> Email:mail@mail.com</p>
                         </div>
-
                         <div class="col-md-4 col-lg-3 footer-location">
                             <h3 class="mb-3">Our Location</h3>
                             <!--Google map-->
@@ -196,7 +187,7 @@ include('includes/head.html');
                 </div>
             </div>
         </footer>
-    </div>
+    </div> <!-- Footer End-->
 </div>
 
 <!-- Optional JavaScript -->
@@ -216,6 +207,5 @@ include('includes/head.html');
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"
 ></script>
-
 </body>
 </html>

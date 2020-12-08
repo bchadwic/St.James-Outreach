@@ -12,7 +12,7 @@ formFunction.php creates the functions that validates the form
 
 //Validate Assistance
 function validAssist($assistance) {
-    $validAssistance = array("Utilities", "Rent", "Gas", "Thrift Store","Licence or ID","Food");
+    $validAssistance = array("Utilities", "Rent", "Gas", "Thrift Store","License or ID","Food");
     //Check each assistance is valid
     foreach($assistance as $assistanceCheck) {
         if (!in_array($assistanceCheck, $validAssistance)) {

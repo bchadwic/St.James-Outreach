@@ -12,76 +12,7 @@ if it sends the user to the resources page or form
 
 
 document.getElementById("zipForm").onsubmit = validateZip;
-/*
-	function validateZip gets the value a user puts in and if the value
-	is 98030,98031,98032,98042,98058 if passes theme to the form otherwise 
-	it sends the user to the resources page
-*/
-window.onload = validateTime;
 
-function showForm() {
-    document.getElementById("formDiv").classList.remove("d-none");
-}
-
-function showNonForm() {
-    document.getElementById("nonformDiv").classList.remove("d-none");
-}
-
-//validates when the user can fill out the form
-function validateTime() {
-    let todayDate = new Date();
-    let myDay = /*todayDate.getDay()*/ 1;
-    let myHour = /*todayDate.getHours();*/ 13;
-    // Tests to see if it is Monday
-    if (myDay == 1) {
-        console.log("It's Monday!");
-        // Tests to see if it is after 1pm and before 4pm
-        if (13 <= myHour && myHour < 16) {
-            console.log("You made it in time!");
-            showForm();
-        } else {
-            console.log("Sorry, try again later!");
-            showNonForm();
-        }
-        // Test to see if it is Tuesday
-    } else if (myDay == 2) {
-        console.log("It's Tuesday!");
-        // Tests to see if it is after 9am and before noon
-        if (9 <= myHour && myHour < 12) {
-            console.log("You made it in time!");
-            showForm();
-        } else {
-            console.log("Sorry, try again later!");
-            showNonForm();
-        }
-        // Test to see if it is Wednesday
-    } else if (myDay == 3) {
-        console.log("It's Wednesday!");
-        // Tests to see if it is after 1pm and before 4pm
-        if (13 <= myHour && myHour < 16) {
-            console.log("You made it in time!");
-            showForm();
-        } else {
-            console.log("Sorry, try again later!");
-            showNonForm();
-        }
-        // Else, it's not within the hours of operation
-    } else {
-        console.log("Sorry, try again later!");
-        showNonForm();
-    }
-
-    /*Monday:
-        1:00 pm to 4:00 pm
-    Tuesday:
-        9 a.m. to 12:00 noon
-    Wednesday:
-        1:00 pm to 4:00 pm*/
-
-}
-
-
-//validateds the zip
 function validateZip() {
     let zip = document.getElementById("zipCode").value;
     if (zip == "98030") {

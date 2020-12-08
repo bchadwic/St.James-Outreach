@@ -1,40 +1,27 @@
 <?php
 session_start();
 ?>
-
 <!--
-Ben Chadwick
-Jessica Sestak
-Husrav Homidov
-Tiffany Welo
+    Ben Chadwick
+    Jessica Sestak
+    Husrav Homidov
+    Tiffany Welo
 
-Team Dotcom
-11/1/20
-This website is to let the user know that they submitted the form and emails the users information to the client
--->
-<?php
-//if(empty($_POST)) {
-//   header("location: index.php");
-//  return;
-//}
-// Include header file
-include("includes/head.html");
-require("includes/creds.php");
-require("includes/formFunctions.php")
-?>
-
+    Team Dotcom
+    11/1/20
+    This website is to let the user know that they submitted the form and emails the users information to the client
+    -->
 <body>
-
 <!--NAVBAR-->
 <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
     <div class="container">
+        <!-- Toggler For Mobile -->
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#myTogglerNav"
                 aria-controls="myTogglerNav" aria-expanded="false"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <a href="index.php" class="navbar-brand">Kent Outreach</a>
         <div class="collapse navbar-collapse" id="myTogglerNav">
             <div class="navbar-nav">
@@ -42,11 +29,74 @@ require("includes/formFunctions.php")
                 <a href="index.php#contact" class="nav-item nav-link">CONTACTS</a>
                 <a href="getinvolved.php" class="nav-item nav-link">GET INVOLVED</a>
                 <a href="resources.php" class="nav-item nav-link">RESOURCES</a>
-            </div><!-- navbar -->
+            </div>
         </div>
-    </div><!-- container -->
-</nav><!-- nav -->
+    </div>
+</nav><!-- NAVBAR END -->
+
 <?php
+/*ini_set('display_errors', 1);
+error_reporting(E_ALL);*/
+
+include("includes/head.html");
+require("includes/creds.php");
+require("includes/formFunctions.php");
+
+$target_file = "";
+if(!(empty($_FILES))) {
+
+
+    echo '<pre>';
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["myfile"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+// Check if image file is a actual image or fake image
+    if (isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["myfile"]["tmp_name"]);
+        if ($check !== false) {
+            echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+    }
+
+// Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+// Check file size
+    if ($_FILES["myfile"]["size"] > 10000000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+// Allow certain file formats
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif") {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+// Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $target_file)) {
+            echo "The file " . htmlspecialchars(basename($_FILES["myfile"]["name"])) . " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+
+    echo "</pre>";
+}
 //sets isValid to tru
 $isValid = true;
 
@@ -189,10 +239,10 @@ $comment = mysqli_real_escape_string($conn, $comment);
 
 // Send data to database
 $sql = "INSERT INTO outreach_form 
-        (`id`, `FirstName`, `LastName`, `Phone`, `Email`, `Address`, `AddressTwo`, 
-        `City`, `Zip`, `HelpList`, `Comments`) 
-        VALUES (NULL, '$fname', '$lname', '$phone', 
-        '$email', '$addressOne', '$addressTwo', '$city', '$zip', '$assistanceMore', '$comment');";
+                (`id`, `FirstName`, `LastName`, `Phone`, `Email`, `Address`, `AddressTwo`, 
+                `City`, `Zip`, `HelpList`, `Comments`, `Attachments`) 
+                VALUES (NULL, '$fname', '$lname', '$phone', 
+                '$email', '$addressOne', '$addressTwo', '$city', '$zip', '$assistanceMore', '$comment', '$target_file');";
 
 $success = mysqli_query($conn, $sql);
 if (!$success) {
@@ -201,7 +251,7 @@ if (!$success) {
 
 //format data to be more easily read
 
-$to = "jsestak2@mail.greenriver.edu";
+$to = "";//"bchadwick@mail.greenriver.edu";
 $subject = "Form completed";
 $message = "Form completed by: $fname $lname \r\n";
 $message .= "Phone: $phone\n";
@@ -222,84 +272,72 @@ $confirmEmailSubject = "St.James Application";
 mail($to, $subject, $message);
 mail($email, $confirmEmailSubject, $confirmEmail);
 ?>
-<div class="w3-content pageStyle">
 
-    <!-- Note to user thanking them for submitting form -->
-    <div class="w3-content pageStyle">
 
-        <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 mb-5 bg-white rounded">
-            <img src="images/stjameslogoreal.png" class="img-fluid" alt="St. James logo">
-        </div>
+<div class="pageStyle container mb-5 bg-white rounded">
+    <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 mb-5 rounded pageStyle">
+        <!-- St. James Logo -->
+        <img src="images/stjameslogo.png" class="rounded mx-auto d-block img-responsive" alt="St. James logo" width="350" height="200">
 
-        <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 mb-5 bg-white rounded" id="main">
-
-            <h2>Thank you for your request. We'll be in touch soon!</h2> <br>
-            <div>
-                <h4>Please <a href="resources.php"><u>click here</u></a> to see the other resources provided!
-                </h4>
-
-            </div>
-        </div>
-
-        <!-- The Footer Section -->
-        <div class="w3-container w3-content w3-center w3-padding-64 shadow-lg mb-5 bg-white w3-black rounded"
-             id="contact">
-            <!-- Footer -->
-            <footer>
-                <div class="footer-top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4 col-lg-4 footer-about">
-                                <h3 class="mb-5">Hours</h3>
-
-                                <p><i class="fa fa-calendar contactFont"> </i>
-                                    Monday: 1:00pm to 4:00pm</p>
-                                <p>Tuesday: 9:00am to 12:00 noon</p>
-                                <p>Wednesday: 1:00pm to 4:00pm</p>
-
-                            </div>
-
-                            <div class="col-md-4 col-lg-4 footer-contact">
-                                <h3 class="mb-5">Contacts</h3>
-                                <!-- Google Map insertion -->
-                                <p><i class="fa fa-map-marker" id="google"></i>
-                                    <a
-                                            href="https://goo.gl/maps/UEuiGpguDtXozPjN7"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                    >24447 94th Ave S, Kent, WA, 98030 </a></p>
-                                <p><i class="fa fa-phone contactFont"></i> Phone:<a
-                                            href="tel:253-852-4100">253-852-4100</a></p>
-                                <p><i class="fa fa-envelope contactFont"> </i> Email:mail@mail.com</p>
-                            </div>
-
-                            <div class="col-md-4 col-lg-3 footer-location">
-                                <h3 class="mb-3">Our Location</h3>
-                                <!--Google map-->
-                                <div id="map-container-google-1" class="z-depth-1-half map-container"
-                                     style="height: 200px">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10806.156076848025!2d-122.216393!3d47.381915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54905eaea6606e61%3A0x206815f453c0e48b!2s24447%2094th%20Ave%20S%2C%20Kent%2C%20WA%2098030!5e0!3m2!1sen!2sus!4v1605391186289!5m2!1sen!2sus"
-                                            width="300" height="150" style="border:0;" allowfullscreen=""
-                                            aria-hidden="false"
-                                            tabindex="0"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Post submission message -->
+        <div class="container">
+            <hr>
+                <h2>Thank you for your request. We'll be in touch soon!</h2>
+                <br>
+                <div>
+                    <h4>Please <a href="resources.php"><u>click here</u></a> to see the other resources provided!
+                    </h4>
                 </div>
-                <div class="footer-bottom">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-7 footer-menu">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
-</div>
 
+    <!-- Footer -->
+    <div class="w3-container w3-content w3-center w3-padding-64 shadow-lg mb-5 bg-white w3-black rounded" id="contact">
+        <footer>
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 footer-about">
+                            <!-- Hours -->
+                            <h3 class="mb-5">Hours</h3>
+                            <p><i class="fa fa-calendar contactFont"> </i>
+                                Monday: 1:00pm to 4:00pm
+                            </p>
+                            <p>Tuesday: 9:00am to 12:00 noon</p>
+                            <p>Wednesday: 1:00pm to 4:00pm</p>
+                        </div>
+
+                        <!-- Contacts -->
+                        <div class="col-md-4 col-lg-4 footer-contact">
+                            <h3 class="mb-5">Contacts</h3>
+                            <p><i class="fa fa-map-marker" id="google"></i>
+                                <a
+                                        href="https://goo.gl/maps/UEuiGpguDtXozPjN7"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                >24447 94th Ave S, Kent, WA, 98030 </a>
+                            </p>
+                            <p><i class="fa fa-phone contactFont"></i> Phone:<a href="tel:253-852-4100">253-852-4100</a>
+                            </p>
+                         <!--   <p><i class="fa fa-envelope contactFont"> </i> Email:mail@mail.com</p> -->
+                        </div>
+                        <!-- Location -->
+                        <div class="col-md-4 col-lg-3 footer-location">
+                            <h3 class="mb-3">Our Location</h3>
+                            <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 200px">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10806.156076848025!2d-122.216393!3d47.381915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54905eaea6606e61%3A0x206815f453c0e48b!2s24447%2094th%20Ave%20S%2C%20Kent%2C%20WA%2098030!5e0!3m2!1sen!2sus!4v1605391186289!5m2!1sen!2sus"
+                                        width="300" height="150" style="border:0;" allowfullscreen=""
+                                        aria-hidden="false"
+                                        tabindex="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div> <!-- Footer End-->
+
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script

@@ -11,54 +11,110 @@ $username = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = strtolower(trim($_POST['username']));
     $password = trim($_POST['password']);
+    //get login credentials
+   require('includes/login-creds.php');
 
-//get login credentials
-  //  require('includes/login-creds.php');
-    $adminUser = "peter";
-    $adminPassword = "outreach";
-
-
-//checks to see if username and password are correct and if they are creates a session
+   $loggedin = false;
+   //checks to see if username and password are correct and if they are creates a session
     if ($username == $adminUser && $password == $adminPassword) {
         $_SESSION['loggedin'] = true;
+        $loggedin = true;
         $_SESSION['page'] = 'control.php';
-
         header("location: " . $_SESSION['page']);
     }
 
     include('includes/head.html');
     $err = true;
-    echo "<script>
-    
-        $(document).ready(function(){
-        $('#loginModal').modal('show');
-        });
-    </script>";
-
-
-
 }
 include('includes/head.html');
+echo "<script>
+    
+        function showForm() {
+            $('#formDiv').removeClass('d-none');
+            $('#nonformDiv').addClass('d-none');
+        }
+        
+        function showNonForm() {
+            $('#nonformDiv').removeClass('d-none');
+            $('#formDiv').addClass('d-none');
+        }
+        
+        $.post('includes/formDisplay.php',function (display){
+            if(display == 0){
+                $('#formDiv').removeClass('d-none');
+                $('#nonformDiv').addClass('d-none');
+            } else if(display == 1){
+                $('#nonformDiv').removeClass('d-none');
+                $('#formDiv').addClass('d-none');
+            } else {
+                let todayDate = new Date();
+                let myDay = todayDate.getDay();
+                let myHour = todayDate.getHours();
+                // Tests to see if it is Monday
+                if (myDay == 1) {
+                    console.log('Its Monday!');
+                    // Tests to see if it is after 1pm and before 4pm
+                    if (13 <= myHour && myHour < 16) {
+                        showForm();
+                    } else {
+                        showNonForm();
+                    }
+                    // Test to see if it is Tuesday
+                } else if (myDay == 2) {
+                    // Tests to see if it is after 9am and before noon
+                    if (9 <= myHour && myHour < 12) {
+                        showForm();
+                    } else {
+                        showNonForm();
+                    }
+                    // Test to see if it is Wednesday
+                } else if (myDay == 3) {
+                    // Tests to see if it is after 1pm and before 4pm
+                    if (13 <= myHour && myHour < 16) {
+                        showForm();
+                    } else {
+                        showNonForm();
+                    }
+                    // Else, it's not within the hours of operation
+                } else {
+                    showNonForm();
+                }
+            }
+        });
+        
+        
+    </script>";
+/*
+echo "<script>
+        console.log($loggedin);
+        $('adminLink').on('click', function (){
+            console.log('You clicked on the admiin link')
+           if($loggedin === 1){
+               console.log('you clicked');
+               window.location('control.php');
+           } else {
+               $('#loginModal').fadeIn('show');
+           }
+        });
+        </script>";*/
 
 
 ?>
 
 <!--echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>';
--->
+    -->
 <!--
-Ben Chadwick
-Jessica Sestak
-Husrav Homidov
-Tiffany Welo
+    Ben Chadwick
+    Jessica Sestak
+    Husrav Homidov
+    Tiffany Welo
 
-Team Dotcom
-11/1/20
-This website is the homepage for St. James Outreach
--->
-
+    Team Dotcom
+    11/1/20
+    This website is the homepage for St. James Outreach
+    -->
 <!-- Beginning of the main body -->
 <body id="pageTop">
-
 <!--NAVBAR-->
 <nav class="navbar navbar-dark bg-dark navbar-expand-md sticky-top">
     <div class="container">
@@ -68,7 +124,6 @@ This website is the homepage for St. James Outreach
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <a href="#pageTop" class="navbar-brand">Kent Outreach</a>
         <div class="collapse navbar-collapse" id="myTogglerNav">
             <div class="nav navbar-nav" id="navDiv">
@@ -77,17 +132,18 @@ This website is the homepage for St. James Outreach
                 <a href="getinvolved.php" class="nav-item nav-link">GET INVOLVED</a>
                 <a href="resources.php" class="nav-item nav-link">RESOURCES</a>
                 <a href="#" class="nav-item nav-link active"></a>
-            </div><!-- navbar -->
+            </div>
+            <!-- navbar -->
         </div>
-    </div><!-- container -->
-</nav><!-- nav -->
-
+    </div>
+    <!-- container -->
+</nav>
+<!-- nav -->
 <!-- Page content -->
 <div class="w3-content pageStyle">
     <!-- The Application Form Section -->
     <!-- Paragraph representing what the Outreach program does -->
     <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 mb-5 bg-white rounded">
-
         <!-- Welcome Message -->
         <div class="w3-container w3-content w3-center" id="welcomeMessage">
             <h1>St. James Outreach</h1>
@@ -108,8 +164,6 @@ This website is the homepage for St. James Outreach
             need.
         </p>
     </div>
-
-
     <!-- Seeking help section -->
     <div id="assistance" class="mb-5">
         <div id="formDiv" class="w3-center w3-black w3-padding-64 seekingStyle mb-4 d-none">
@@ -126,10 +180,9 @@ This website is the homepage for St. James Outreach
             </form>
             <a class="w3-opacity w3-padding-small w3-text-white w3-hover-opacity-off" href="form.php#residency">
                 <span class="lead"><u>I am currently without a residence</u></span>
-                </a>
+            </a>
         </div>
     </div>
-
     <div class="modal fade" tabindex="-1" role="dialog" id="redirectModal" aria-labelledby="redirectModal"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -143,7 +196,8 @@ This website is the homepage for St. James Outreach
                 <div class="modal-body">
                     <p class="w3-large"><u>Sorry, it seems that you're out of the Outreach's range.</u></p>
                     <p class="w3-large">We have additional resources available for you to check. If you want to proceed,
-                        click continue, otherwise click close.</p>
+                        click continue, otherwise click close.
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
@@ -154,24 +208,22 @@ This website is the homepage for St. James Outreach
             </div>
         </div>
     </div>
-
-
     <div id="nonformDiv" class="w3-black w3-padding-64 d-none">
         <h1 class="w3-wide w3-center">SEEKING HELP?</h1>
-        <p class="w3-opacity w3-center w3-large">
-            Please come back during our hours of operation to view our help forms, or please visit our <u>resource</u>
-            page.
+        <p class= "w3-center w3-large">Please come back during our hours of operation fill out our help form, or visit our <a href="resources.php" style="color: white;"><u>resource</u></a>
+            page.<br>If we are still not operational during the hours below, we are currently limited on resources, please try again later.
         </p>
-        <div class="w3-large w3-margin-bottom w3-center">
+        <div class="w3-opacity w3-large w3-margin-bottom w3-center">
             <i class="fa fa-calendar contactFont"> </i>
             Monday: 1:00pm to 4:00pm <br/>
             Tuesday: 9:00am to 12:00 noon <br/>
             Wednesday: 1:00pm to 4:00pm<br/>
         </div>
+        <!--<p class="w3-center w3-large">
+            If we are still not operational during the hours below, we are currently limited on resources, please try again later.
+            </p>-->
     </div>
 </div>
-
-
 <!-- What we help with section -->
 <div class="w3-container w3-content w3-center band shadow-lg p-3 mt-5 mb-5 bg-white rounded">
     <h2 class="w3-wide w3-center">WHAT WE HELP WITH</h2>
@@ -179,33 +231,35 @@ This website is the homepage for St. James Outreach
         <p class="lead">
             Appointments are made first come, first served. The online form is only accessible
             during business hours. If you cannot access the
-            form it is either outside of business hours or we have filled our appointments for the week.</p><br/>
-
+            form it is either outside of business hours or we have filled our appointments for the week.
+        </p>
+        <br/>
         <!--RESOURCES OPTIONS-->
         <div class="w3-row-padding w3-center w3-margin-top">
             <div class="w3-third">
                 <div class="w3-home w3-container assistanceStyle">
-                    <h4>Utilities</h4><br>
+                    <h4>Utilities</h4>
+                    <br>
                     <i class="fa fa-home w3-margin-bottom w3-text-theme assistanceFont"></i>
                     <div class="m6 w3-large">
                         <p>We can assist with paying for rent and utilities, such as water and electricity</p>
                     </div>
                 </div>
             </div>
-
             <div class="w3-third">
                 <div class="w3-car w3-container assistanceStyle">
-                    <h4>Gas Voucher</h4><br>
+                    <h4>Gas Voucher</h4>
+                    <br>
                     <i class="fa fa-car w3-margin-bottom w3-text-theme assistanceFont"></i>
                     <div class="m6 w3-large">
                         <p>We can supply you with a gas voucher, dependant on if you have a driver's license</p>
                     </div>
                 </div>
             </div>
-
             <div class="w3-third">
                 <div class="w3-shopping-cart w3-container assistanceStyle">
-                    <h4>Store Voucher</h4><br>
+                    <h4>Store Voucher</h4>
+                    <br>
                     <i class="fa fa-shopping-cart w3-margin-bottom w3-text-theme assistanceFont"></i>
                     <div class="m6 w3-large">
                         <p>We supply vouchers to our thrift store which has clothes and household items</p>
@@ -215,32 +269,36 @@ This website is the homepage for St. James Outreach
             <div class="w3-center">
                 <div class="w3-third">
                     <div class="w3-drivers-license w3-container assistanceStyle">
-                        <h4>ID Cards</h4><br>
+                        <h4>ID Cards</h4>
+                        <br>
                         <i class="fa fa-drivers-license w3-margin-bottom w3-text-theme assistanceFont"></i>
                         <div class="m6 w3-large">
                             <p>We can assist obtaining a driver's license or an ID card at the
                                 <a href="https://goo.gl/maps/bLMG2cjikHaMZyHx5" target="_blank"><u>Kent Licensing
-                                        Agency</u></a></p>
+                                        Agency</u></a>
+                            </p>
                         </div>
                     </div>
                 </div>
-
                 <div class="w3-third">
                     <div class="w3-life-ring w3-container assistanceStyle">
-                        <h4>Emergency Supplies</h4><br>
+                        <h4>Emergency Supplies</h4>
+                        <br>
                         <i class="fa fa-life-ring w3-margin-bottom w3-text-theme assistanceFont"></i>
                         <div class="m6 w3-large">
                             <p>We can supply you with emergency supplies, such as food and toiletries</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="w3-third">
                     <div class="w3-info-circle w3-container assistanceStyle">
-                        <h4>More</h4><br>
+                        <h4>More</h4>
+                        <br>
                         <i class="fa fa-info-circle w3-margin-bottom w3-text-theme assistanceFont"></i>
                         <div class="m6 w3-large">
-                            <p>There are more <a href="resources.php"><u>resources</u></a> available. Please fill out our form to specify your needs</p>
+                            <p>There are more <a href="resources.php"><u>resources</u></a> available. Please fill out
+                                our form to specify your needs
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -249,7 +307,6 @@ This website is the homepage for St. James Outreach
         <br>
     </div>
 </div>
-
 <div class="modal fade" tabindex="-1" role="dialog" id="loginModal" aria-labelledby="loginModal"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" id="loginPanel" role="document">
@@ -260,36 +317,31 @@ This website is the homepage for St. James Outreach
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post">
-            <div class="modal-body">
+            <form id="loginForm" method="post">
+                <div class="modal-body">
                     <div class="row form-group">
                         <div class="col-2 mr-3">
-                            <label class="mt-2 mb-3 control-label lead" >Username</label><br>
+                            <label class="mt-2 mb-3 control-label lead">Username</label><br>
                             <label class="control-label lead">Password</label>
-
                         </div>
                         <div class="ml-5 col-xs-2">
-                            <input class="form-control mb-2" type="text" id="username" name="username"<?php echo "value='$username'" ?>>
+                            <input class="form-control mb-2" type="text" id="username"
+                                   name="username"<?php echo "value='$username'" ?>>
                             <input class="form-control" type="password" id="password" name="password">
                         </div>
-                        <?php
-                        if ($err){
-                            echo '<div class="alert alert-danger ml-3" role="alert">
-                                        <strong>Wrong username or password</strong>
-                                        </div>';
-                        }
-                        ?>
+                        <div id="invalidText" class="alert alert-danger ml-4 mt-2 d-none" role="alert">
+                            <strong>Wrong username or password</strong>
+                        </div>
                     </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-secondary">Login</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="validate()" id="loginButton" class="btn btn-secondary">Login</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
-
 <!-- The Footer Section -->
 <div class="w3-container w3-content w3-center w3-padding-64 shadow-lg mb-5 bg-white w3-black rounded" id="contact">
     <!-- Footer -->
@@ -299,9 +351,9 @@ This website is the homepage for St. James Outreach
                 <div class="row">
                     <div class="col-md-4 col-lg-4 footer-about">
                         <h3 class="mb-5">Hours</h3>
-
                         <p><i class="fa fa-calendar contactFont"> </i>
-                            Monday: 1:00pm to 4:00pm</p>
+                            Monday: 1:00pm to 4:00pm
+                        </p>
                         <p>Tuesday: 9:00am to 12:00 noon</p>
                         <p>Wednesday: 1:00pm to 4:00pm</p>
                     </div>
@@ -313,10 +365,12 @@ This website is the homepage for St. James Outreach
                                     href="https://goo.gl/maps/UEuiGpguDtXozPjN7"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                            >24447 94th Ave S, Kent, WA, 98030 </a></p>
+                            >24447 94th Ave S, Kent, WA, 98030 </a>
+                        </p>
                         <p><i class="fa fa-phone contactFont"></i> Phone:<a href="tel:253-852-4100">253-852-4100</a></p>
                         <p><i class="fa fa-envelope contactFont"> </i> Email:mail@mail.com</p>
-                        <a class="w3-text-white" href="control.php" data-toggle="modal" data-target="#loginModal" >Admin Page</a>
+                        <a href="#" class="w3-text-white" id="adminLink">Admin
+                            Page</a>
                     </div>
                     <div class="col-md-4 col-lg-3 footer-location">
                         <h3 class="mb-3">Our Location</h3>
@@ -332,16 +386,6 @@ This website is the homepage for St. James Outreach
         </div>
     </footer>
 </div>
-
-<!-- Footer Temp -->
-<footer
-        class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge"
->
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <p class="w3-medium">Made by Dotcom</p>
-</footer>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script
@@ -354,6 +398,7 @@ This website is the homepage for St. James Outreach
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"
 ></script>
+
 <script
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
@@ -371,10 +416,44 @@ This website is the homepage for St. James Outreach
             this.className += " active";
         });
     }
+
 </script>
+<?php
+$loggedin = false;
+if(isset($_SESSION['loggedin'])) {
+    $loggedin = true;
+}
+require('includes/login-creds.php');
+
+echo "<script>
+$('#adminLink').on('click', function (){
+        if('$loggedin'){
+            window.location.href = 'control.php';
+        } else {
+            $('#loginModal').modal('show');
+        }
+    });
+
+function validate(){
+    let username = $('#username').val();
+    let password = $('#password').val();
+    console.log(username);
+    console.log(password);
+
+    
+    if(username == '$adminUser' && password == '$adminPassword'){
+        console.log('made it!');
+        $('#loginForm').submit();
+    } else {
+        $('#password').val('');
+        $('#loginModal').modal('show');
+        $('#invalidText').removeClass('d-none');
+    }
+}
+
+</script>";
+?>
 <script src="scripts/index.js"></script>
 <script src="scripts/zipCode.js"></script>
 </body>
 </html>
-
-

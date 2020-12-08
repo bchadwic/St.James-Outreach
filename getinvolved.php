@@ -1,31 +1,29 @@
 <!--
-Ben Chadwick
-Jessica Sestak
-Husrav Homidov
-Tiffany Welo
+    Ben Chadwick
+    Jessica Sestak
+    Husrav Homidov
+    Tiffany Welo
 
-Team Dotcom
-11/1/20
-This website is the resources for St. James Outreach
--->
+    Team Dotcom
+    11/1/20
+    This website is the resources for St. James Outreach
+    -->
 <?php
-
 // Include header file
 include('includes/head.html');
 
 ?>
 <body>
-
 <!--NAVBAR-->
 <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
     <div class="container">
+        <!-- Toggler For Mobile -->
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#myTogglerNav"
                 aria-controls="myTogglerNav" aria-expanded="false"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <a href="index.php" class="navbar-brand">Kent Outreach</a>
         <div class="collapse navbar-collapse" id="myTogglerNav">
             <div class="navbar-nav">
@@ -33,13 +31,15 @@ include('includes/head.html');
                 <a href="index.php#contact" class="nav-item nav-link">CONTACTS</a>
                 <a href="getinvolved.php" class="nav-item nav-link active">GET INVOLVED</a>
                 <a href="resources.php" class="nav-item nav-link">RESOURCES</a>
-            </div><!-- navbar -->
+            </div>
         </div>
-    </div><!-- container -->
-</nav><!-- nav -->
+    </div>
+</nav> <!-- NAVBAR END -->
 
 <div class="pageStyle container mb-5 bg-white rounded">
     <div class="w3-container w3-content w3-center w3-padding-64 band shadow-lg p-3 mb-5 rounded pageStyle">
+
+        <!-- Page Top Title -->
         <h2 class="mb-3">You Can Help Us Help Others</h2>
         <p class="w3-opacity w3-center">
             <i>We can support more individuals with your contributions. We always welcome your help.
@@ -49,20 +49,18 @@ include('includes/head.html');
         <!--LINKS AND DESCRIPTION SECTION-->
         <div class="container">
             <hr>
-            <!-- HELP -->
             <!-- Donations -->
             <div class="row text-left">
                 <div class="card mb-5 col-md-8 mx-auto">
                     <h3 class="card-header text-center">DONATIONS</h3>
-
                     <div class="card-body mx-auto row">
                         <div class="mr-5">
                             <h5 class="card-title"><strong>Financial Donation</strong></h5>
-                            <ul class="list-unstyled">
+                            <div class="list-unstyled">
                                 <a href="http://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H9ERUZQAKHFUA"
                                    target="_blank"><img src="images/paypalicon.png" class=""
-                                                        alt="PayPal"/><u>PayPal Link</u></a> <br>
-                            </ul>
+                                                        alt="PayPal"/><u>PayPal Link</u></a>
+                            </div>
                         </div>
                         <div>
                             <h5 class="card-title"><strong>Supply Donations</strong></h5>
@@ -75,36 +73,33 @@ include('includes/head.html');
                         </div>
                     </div>
                 </div>
-            </div><!-- Donations -->
+            </div> <!-- Donations End-->
 
             <!-- Volunteer -->
             <div class="row text-left">
                 <div class="card mb-5 col-md-8 mx-auto">
                     <h3 class="card-header text-center">VOLUNTEERS</h3>
-
-                        <div class="card-body mx-auto row mb-3">
-                            <div class="mr-5">
-                                <h5 class="card-title"><strong>Thrift Shop volunteers</strong></h5>
-                                For more information email<br>
-                                <a href="mailto:jacinta@stjameskent.org">
-                                    <u><i class="fa fa-envelope contactFont"></i>jacinta@stjameskent.org</u></a>
-                            </div>
-
-                            <div class="mr-5">
-                                <h5 class="card-title"><strong>Outreach office phone volunteers</strong></h5>
-                                For more information email<br>
-                                <a href="mailto:postrander@stjameskent.org">
-                                    <u><i class="fa fa-envelope contactFont"></i>postrander@stjameskent.org</u></a>
-                            </div>
+                    <div class="card-body mx-auto row mb-3">
+                        <div class="mr-5">
+                            <h5 class="card-title"><strong>Thrift Shop volunteers</strong></h5>
+                            For more information email<br>
+                            <a href="mailto:jacinta@stjameskent.org">
+                                <u><i class="fa fa-envelope contactFont"></i>jacinta@stjameskent.org</u></a>
+                        </div>
+                        <div class="mr-5">
+                            <h5 class="card-title"><strong>Outreach office phone volunteers</strong></h5>
+                            For more information email<br>
+                            <a href="mailto:postrander@stjameskent.org">
+                                <u><i class="fa fa-envelope contactFont"></i>postrander@stjameskent.org</u></a>
+                        </div>
                     </div>
                 </div>
-            </div> <!-- Volunteer -->
+            </div> <!-- Volunteer End -->
 
             <!-- Seasonal Opportunities -->
             <div class="row text-left">
                 <div class="card mb-5 col-md-8 mx-auto">
                     <h3 class="card-header text-center">SEASONAL OPPORTUNITIES</h3>
-
                     <div class="card-body mx-auto row">
                         <div class="mr-5">
                             <h5 class="card-title"><strong>Winter Drive</strong></h5>
@@ -130,45 +125,43 @@ include('includes/head.html');
                         </div>
                     </div>
                 </div>
-            </div> <!-- Seasonal Opportunities -->
+            </div> <!-- Seasonal Opportunities End -->
         </div>
     </div>
 
-
-    <!-- The Footer Section -->
+    <!-- Footer -->
     <div class="w3-container w3-content w3-center w3-padding-64 shadow-lg mb-5 bg-white w3-black rounded" id="contact">
-        <!-- Footer -->
         <footer>
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4 col-lg-4 footer-about">
+                            <!-- Hours -->
                             <h3 class="mb-5">Hours</h3>
-
                             <p><i class="fa fa-calendar contactFont"> </i>
-                                Monday: 1:00pm to 4:00pm</p>
+                                Monday: 1:00pm to 4:00pm
+                            </p>
                             <p>Tuesday: 9:00am to 12:00 noon</p>
                             <p>Wednesday: 1:00pm to 4:00pm</p>
-
                         </div>
 
+                        <!-- Contacts -->
                         <div class="col-md-4 col-lg-4 footer-contact">
                             <h3 class="mb-5">Contacts</h3>
-                            <!-- Google Map insertion -->
                             <p><i class="fa fa-map-marker" id="google"></i>
                                 <a
                                         href="https://goo.gl/maps/UEuiGpguDtXozPjN7"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                >24447 94th Ave S, Kent, WA, 98030 </a></p>
+                                >24447 94th Ave S, Kent, WA, 98030 </a>
+                            </p>
                             <p><i class="fa fa-phone contactFont"></i> Phone:<a href="tel:253-852-4100">253-852-4100</a>
                             </p>
                             <p><i class="fa fa-envelope contactFont"> </i> Email:mail@mail.com</p>
                         </div>
-
+                        <!-- Location -->
                         <div class="col-md-4 col-lg-3 footer-location">
                             <h3 class="mb-3">Our Location</h3>
-                            <!--Google map-->
                             <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 200px">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10806.156076848025!2d-122.216393!3d47.381915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54905eaea6606e61%3A0x206815f453c0e48b!2s24447%2094th%20Ave%20S%2C%20Kent%2C%20WA%2098030!5e0!3m2!1sen!2sus!4v1605391186289!5m2!1sen!2sus"
                                         width="300" height="150" style="border:0;" allowfullscreen=""
@@ -179,28 +172,10 @@ include('includes/head.html');
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7 footer-menu">
-                        </div>
-                    </div>
-                </div>
-            </div>
         </footer>
-    </div>
+    </div> <!-- Footer End-->
 
-
-    <!--
-        <footer
-            class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge"
-        >
-            <i class="fa fa-facebook-official w3-hover-opacity"></i>
-            <i class="fa fa-instagram w3-hover-opacity"></i>
-            <p class="w3-medium">Made by Dotcom</p>
-        </footer>-->
 </div>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script
@@ -218,6 +193,5 @@ include('includes/head.html');
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"
 ></script>
-
 </body>
 </html>

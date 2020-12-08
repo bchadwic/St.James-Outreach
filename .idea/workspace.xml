@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f245a4e1-b950-4f69-98a6-c999c67e6fb6" name="Default Changelist" comment="Changed control2.php table to allow for note edits. Additionally, added a checkbox to each row. All changes to the table now get updated to the database as well as the On|Off|Schedule radio value">
+    <list default="true" id="f245a4e1-b950-4f69-98a6-c999c67e6fb6" name="Default Changelist" comment="Finalized control.php style. Rows now illuminate when selected">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/confirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/confirmation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control.php" beforeDir="false" afterPath="$PROJECT_DIR$/control.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getinvolved.php" beforeDir="false" afterPath="$PROJECT_DIR$/getinvolved.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/zipCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/zipCode.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +40,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,9 +55,9 @@
       <recent name="C:\Users\Ben\PhpstormProjects\Dotcom\images" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ben\PhpstormProjects\Dotcom\images" />
       <recent name="C:\Users\Ben\PhpstormProjects\Dotcom" />
       <recent name="C:\Users\Ben\PhpstormProjects\Dotcom\Backup" />
-      <recent name="C:\Users\Ben\PhpstormProjects\Dotcom\images" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -98,7 +106,7 @@
       <workItem from="1606622502777" duration="1229000" />
       <workItem from="1607217413410" duration="5579000" />
       <workItem from="1607303196400" duration="2891000" />
-      <workItem from="1607366026517" duration="20535000" />
+      <workItem from="1607366026517" duration="46798000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1607366560443</created>
@@ -121,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607382067988</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finalized control.php style. Rows now illuminate when selected">
+      <created>1607389985882</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607389985882</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +145,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Changed control2.php table to allow for note edits. Additionally, added a checkbox to each row. All changes to the table now get updated to the database as well as the On|Off|Schedule radio value" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed control2.php table to allow for note edits. Additionally, added a checkbox to each row. All changes to the table now get updated to the database as well as the On|Off|Schedule radio value" />
+    <MESSAGE value="Finalized control.php style. Rows now illuminate when selected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalized control.php style. Rows now illuminate when selected" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="178" key="#Deployment" timestamp="1607304883722">
@@ -150,11 +166,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="415" y="227" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603085379805" />
-    <state x="2655" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607305357970">
+    <state x="2655" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607409481716">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="735" y="321" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602557565038" />
-    <state x="2655" y="321" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607305357970" />
+    <state x="2655" y="321" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607409481716" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1603172037052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -169,14 +185,14 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2659" y="264" key="NewPhpClassDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607373906036" />
-    <state x="2714" y="451" key="NewPhpFileDialog" timestamp="1607373957769">
+    <state x="2714" y="451" key="NewPhpFileDialog" timestamp="1607413982777">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2714" y="451" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607373957769" />
-    <state x="2472" y="255" key="Vcs.Push.Dialog.v2" timestamp="1607382079649">
+    <state x="2714" y="451" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607413982777" />
+    <state x="2472" y="255" key="Vcs.Push.Dialog.v2" timestamp="1607389990699">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="255" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607382079649" />
+    <state x="2472" y="255" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607389990699" />
     <state x="1920" y="0" width="1047" height="871" key="dock-window-1" timestamp="1604511270103">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -195,5 +211,13 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603168797194" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605243175472" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607366720478" />
+    <state x="2697" y="405" key="webDeployment.PermissionsDialog" timestamp="1607394588191">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2684" y="290" width="391" height="473" key="webDeployment.PermissionsDialog.Tabs" timestamp="1607404702080">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2684" y="290" width="391" height="473" key="webDeployment.PermissionsDialog.Tabs/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607404702080" />
+    <state x="2697" y="405" key="webDeployment.PermissionsDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607394588191" />
   </component>
 </project>
