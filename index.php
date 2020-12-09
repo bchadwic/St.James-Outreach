@@ -450,7 +450,6 @@ function validate(){
         $('#invalidText').removeClass('d-none');
     }
 }
-
 </script>";
 ?>
 <script src="scripts/index.js"></script>

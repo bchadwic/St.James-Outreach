@@ -75,6 +75,8 @@ include('includes/head.html');
                                            maxlength="12"
                                            placeholder="xxx-xxx-xxxx">
                                 </div>
+
+
                                 <span id="error-autofill" class="hidden">*Please insert dashes (ex: XXX-XXX-XXXX)<br></span>
                                 <!-- Email -->
                                 <div class="form-group col-md-6">
@@ -213,7 +215,7 @@ include('includes/head.html');
                                           style="height: 100px; width: 100%"></textarea>
                                 <div class="mb-0">
                                     <label for="myfile"></label>
-                                    <input type="file" id="myfile" name="myfile" multiple><br><br>
+                                    <input type="file" id="myfile" name="myfile"><br><br>
                                 </div>
                             </div>
                             <!-- Creation of terms agreement -->

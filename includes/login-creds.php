@@ -1,5 +1,5 @@
 <?php
-$adminUser = 'admin';
-$adminPassword = 'password';
+$adminUser = 'peter';
+$adminPassword = 'outreach';
 
 

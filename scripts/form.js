@@ -17,6 +17,8 @@ window.onload = addressHide();
 
 document.getElementById("application").onsubmit = validateZip;
 
+
+
 //auto formats phone number
 $(function () {
 

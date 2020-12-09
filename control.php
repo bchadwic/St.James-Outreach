@@ -99,7 +99,7 @@ require("includes/creds.php");
                 while ($row = $result->fetch_assoc()) {
                     $recordId = $row["id"];
                     $clickText = "";
-                    if(!($row['Attachments'] == '0')){
+                    if(!($row['Attachments'] == 'uploads/')){
                         $clickText = "<img class='img img-fluid' src='images/paperclip.png' style='max-width: 40px; height: auto;'>";
                     }
                     echo "<tr class='tableRow' id='row$recordId'><td>" .
@@ -247,6 +247,7 @@ require("includes/creds.php");
         //update row color
         $(this).is(':checked') ? $(this).closest('tr').css({background : '#d1dce7'}) : $(this).closest('tr').css({background : ''}) ;
     });
+
 </script>
 </body>
 </html>

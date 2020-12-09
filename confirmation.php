@@ -1,5 +1,7 @@
 <?php
 session_start();
+include("includes/head.html");
+
 ?>
 <!--
     Ben Chadwick
@@ -38,7 +40,6 @@ session_start();
 /*ini_set('display_errors', 1);
 error_reporting(E_ALL);*/
 
-include("includes/head.html");
 require("includes/creds.php");
 require("includes/formFunctions.php");
 
@@ -251,7 +252,7 @@ if (!$success) {
 
 //format data to be more easily read
 
-$to = "";//"bchadwick@mail.greenriver.edu";
+$to = "bchadwick@mail.greenriver.edu";
 $subject = "Form completed";
 $message = "Form completed by: $fname $lname \r\n";
 $message .= "Phone: $phone\n";
