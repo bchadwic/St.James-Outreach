@@ -3,16 +3,80 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f245a4e1-b950-4f69-98a6-c999c67e6fb6" name="Default Changelist" comment="Added functionality (ex. login, edit, toggle, and upload photos)">
+    <list default="true" id="f245a4e1-b950-4f69-98a6-c999c67e6fb6" name="Default Changelist" comment="Final revision before condensing and commenting code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/confirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/confirmation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control.php" beforeDir="false" afterPath="$PROJECT_DIR$/control.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/common.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/common.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/login-creds.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/login-creds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/confirmation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/control.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/form.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/formUpdated.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/getinvolved.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/index_backup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/old_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/resources.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/confirmation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/control.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/control2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/error_log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/getinvolved.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/211-logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/KentUMC-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/dshs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/dshs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/paypal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/paypalicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/stjameslogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/stjameslogoreal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/stjameslogos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/stjameslogoss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/stjamesresourcelogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/common.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/creds.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/delete.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/edit.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/error_log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/formDisplay.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/formFunctions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/formSet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/head.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/login-creds.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logout.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/zipCode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ajax.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/db/users.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/inc/config.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/inc/simple-database-class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/index.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +85,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,13 +121,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Ben\PhpstormProjects\Dotcom\images" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ben\PhpstormProjects\Dotcom\images" />
       <recent name="C:\Users\Ben\PhpstormProjects\Dotcom" />
       <recent name="C:\Users\Ben\PhpstormProjects\Dotcom\Backup" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ben\PhpstormProjects\Dotcom\images" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -106,7 +177,7 @@
       <workItem from="1607217413410" duration="5579000" />
       <workItem from="1607303196400" duration="2891000" />
       <workItem from="1607366026517" duration="47696000" />
-      <workItem from="1607448870655" duration="3976000" />
+      <workItem from="1607448870655" duration="23474000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1607366560443</created>
@@ -143,18 +214,37 @@
       <option name="project" value="LOCAL" />
       <updated>1607419888251</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Final revision before condensing and commenting code">
+      <created>1607473556448</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607473556448</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Changed control2.php table to allow for note edits. Additionally, added a checkbox to each row. All changes to the table now get updated to the database as well as the On|Off|Schedule radio value" />
     <MESSAGE value="Finalized control.php style. Rows now illuminate when selected" />
     <MESSAGE value="Added functionality (ex. login, edit, toggle, and upload photos)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added functionality (ex. login, edit, toggle, and upload photos)" />
+    <MESSAGE value="Final revision before condensing and commenting code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final revision before condensing and commenting code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="178" key="#Deployment" timestamp="1607304883722">
@@ -183,12 +273,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603172037052" />
-    <state x="2660" y="274" key="FileChooserDialogImpl" timestamp="1607366458752">
+    <state x="2660" y="274" key="FileChooserDialogImpl" timestamp="1607473486555">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1180" y="274" key="FileChooserDialogImpl/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1603257276997" />
     <state x="740" y="274" key="FileChooserDialogImpl/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604284991745" />
-    <state x="2660" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607366458752" />
+    <state x="2660" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607473486555" />
     <state x="2659" y="264" key="NewPhpClassDialog" timestamp="1607373906036">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -197,10 +287,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2714" y="451" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607413982777" />
-    <state x="2472" y="255" key="Vcs.Push.Dialog.v2" timestamp="1607419897506">
+    <state x="2472" y="255" key="Vcs.Push.Dialog.v2" timestamp="1607473563011">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="255" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607419897506" />
+    <state x="2472" y="255" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607473563011" />
     <state x="1920" y="0" width="1047" height="871" key="dock-window-1" timestamp="1604511270103">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -209,16 +299,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="830" y="411" key="publish.login/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602986900712" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1603168420725">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2536" y="240" key="run.anything.popup" timestamp="1607492449875">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603168420725" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1607366720478">
+    <state x="2536" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607492449875" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1607496153182">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603168797194" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605243175472" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607366720478" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1607496153182" />
     <state x="2697" y="405" key="webDeployment.PermissionsDialog" timestamp="1607394588191">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
