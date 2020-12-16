@@ -1,5 +1,5 @@
 <?php
-require "creds.php";
+require("../../../../dotcom/creds/creds.php");
 include_once "common.php";
 // if record is set in the $_GET array, then delete the row
 if (isset($_GET['recordId'])) {

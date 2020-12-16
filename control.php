@@ -10,7 +10,7 @@ if (!isset($_SESSION['loggedin'])) {
 }
 // Include header file
 include("includes/head.html");
-require("includes/creds.php");
+require("../../../dotcom/creds/creds.php");
 ?>
 <!--
 Ben Chadwick

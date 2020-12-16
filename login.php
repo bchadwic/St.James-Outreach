@@ -7,7 +7,7 @@ $err = false;
 $username = "";
 
 // Load credentials
-require ('includes/login-creds.php');
+require("../../../dotcom/creds/creds.php");
 
 //If the form has been submitted
 if($_SERVER['REQUEST_METHOD'] == 'POST') {

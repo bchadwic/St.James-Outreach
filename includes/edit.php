@@ -1,5 +1,5 @@
 <?php
-require("creds.php");
+require("../../../../dotcom/creds/creds.php");
 // Set the local variables to the values passed through $_POST
 $id = $_POST['id'];
 $text = $_POST['text'];

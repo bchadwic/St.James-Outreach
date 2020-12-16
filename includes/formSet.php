@@ -1,6 +1,6 @@
 <?php
 // Form set operates upon the toggle in the control page
-require("creds.php");
+require("../../../../dotcom/creds/creds.php");
 // Set the form to the value of the toggle selected on the form page
 $query = "UPDATE `admin_functions` SET `form` =";
 $query = $query.$_POST['display'];

@@ -1,6 +1,6 @@
 <?php
 // Return the value of teh completed row to determine if the row should be checked
-require("creds.php");
+require("../../../../dotcom/creds/creds.php");
 $id = $_POST['id'];
 $query = "SELECT completed FROM `outreach_form` WHERE id=".$id;
 $success = mysqli_query($conn, $query);

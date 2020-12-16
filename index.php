@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = strtolower(trim($_POST['username']));
     $password = trim($_POST['password']);
     //get login credentials
-   require('includes/login-creds.php');
+    require("../../../dotcom/creds/creds.php");
 
    //checks to see if username and password are correct and if they are creates a session
     if ($username == $adminUser && $password == $adminPassword) {

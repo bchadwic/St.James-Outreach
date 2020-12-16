@@ -1,6 +1,6 @@
 <?php
 // Sets the value in completed to on or off if the user clicks the checkboxes on the rows
-require("creds.php");
+require("../../../../dotcom/creds/creds.php");
 $id = $_POST['id'];
 $checked = $_POST['checked'];
 // Query to fetch the completed row

@@ -1,6 +1,6 @@
 <?php
 // Returns whether or not the form should be displayed on the index.php
-require("creds.php");
+require("../../../../dotcom/creds/creds.php");
 $query = "SELECT form FROM `admin_functions`";
 $success = mysqli_query($conn, $query);
 // If query is unsuccessful, print to the page

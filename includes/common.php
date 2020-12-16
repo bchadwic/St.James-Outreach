@@ -1,5 +1,5 @@
 <?php
-require("creds.php");
+require("../../../../dotcom/creds/creds.php");
 // This class is able to display all records and delete individual ones
 class Common
 {
@@ -15,7 +15,7 @@ class Common
         $imageQuery = "SELECT `Attachments` FROM `outreach_form` WHERE id='$recordId'";
         $imagePath = $conn->query($imageQuery) or die("Error in query2".$conn->error);
         $path = mysqli_fetch_array($imagePath);
-        unlink("/home/dotcomgr/public_html/$path[0]");
+        unlink("../../../../dotcom/images/$path[0]");
         $query = "DELETE FROM outreach_form WHERE id='$recordId'";
         $result = $conn->query($query) or die("Error in query3".$conn->error);
         return $result;

@@ -35,14 +35,14 @@ This website is to let the user know that they submitted the form and emails the
 </nav>
 <!-- NAVBAR END -->
 <?php
-require("includes/creds.php");
+require("../../../dotcom/creds/creds.php");
 require("includes/formFunctions.php");
 
 $target_file = "";
 if (!(empty($_FILES))) {
     echo '<pre>';
     // init image file path
-    $target_dir = "uploads/";
+    $target_dir = "../../../dotcom/images/";
     $target_file = $target_dir . basename($_FILES["myfile"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
